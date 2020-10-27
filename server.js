@@ -3,12 +3,15 @@ const
     http = require("http"),
     express = require("express"),
     socketio = require("socket.io");
+    
 
 const SERVER_PORT = 3000;
 
 
+const {gridParkStreets} = require("./griddata");
+
 let nextVisitorNumber = 1;
-let data = []
+let data = gridParkStreets
 
 
 function onNewWebsocketConnection(socket) {

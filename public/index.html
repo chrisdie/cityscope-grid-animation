@@ -8,10 +8,29 @@
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
   <script src="script.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
+  <script src="animate.js" type="text/javascript"></script>
+  
   <title> GRID </title>
 </head>
-<body>
-<div id="grid"></div>
+<body style="font-size: 24pt;">
+
+
+ <style>
+   .inner {
+      position: absolute;
+    }
+
+ </style> 
+<div >
+ <div style="width:1000px; height:1500px;">
+    <div id="grid" class="inner"></div>
+    <canvas id="fireworks" style="width:1000px; height:1000px;" class="inner"></canvas>
+  </div>
+</div> 
+<div>Time:<span id="timelinevalue">2020</span></div>
+<input id="timeline" type="range" min="1990" max="2020" value="2020" step="5" style="width: 1000px">
+
 
 </body>
 </html>

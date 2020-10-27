@@ -9,8 +9,8 @@ $.getJSON("grid.json", function(json) {
 });
 
 
-var _gridCellWidth  = 50;
-var _gridCellHeight = 50; 
+var _gridCellWidth  = 25;
+var _gridCellHeight = 25; 
 
 var _gridRowNum = 20
 var _gridColNum = 20

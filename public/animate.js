@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     window.human = false;
 
-    let _smokeAlpha = 0.1
+    let _smokeAlpha = 0.02
     let _smokeParticleNum = 10
     
 
@@ -218,23 +218,25 @@ $(document).ready(function () {
         // innerorts NOx Werte seit 1990: https://pudi.lubw.de/detailseite/-/publication/10123
         // 1990: im schnitt 1000 - seit dem immer weiter runter mit der euronorm
         const data = [
-            { year: 1990, smokeAlpha: 1.0 , smokeParticleNum:10},
-            { year: 1995, smokeAlpha: 0.4 , smokeParticleNum:10},
-            { year: 2000, smokeAlpha: 0.2 , smokeParticleNum:10},
-            { year: 2005, smokeAlpha: 0.1 , smokeParticleNum:10},
-            { year: 2010, smokeAlpha: 0.075 , smokeParticleNum:10},
-            { year: 2015, smokeAlpha: 0.02 , smokeParticleNum:10},
-            { year: 2020, smokeAlpha: 0.02 , smokeParticleNum:10}
+            { year: 1990, smokeAlpha: 1.0 , smokeParticleNum:10, text:"NOx bei ca 1000mg (Spanne damals zwischen 400mg bis 1800mg"},
+            { year: 1995, smokeAlpha: 0.4 , smokeParticleNum:10, text:"NOx bei ca 400mg (Erste Euro Norm Einführung)"},
+            { year: 2000, smokeAlpha: 0.2 , smokeParticleNum:10, text:"NOx bei ca 200mg (Euro 3, Euro Normen werden sukzessive runtergesetzt)"},
+            { year: 2005, smokeAlpha: 0.1 , smokeParticleNum:10, text:"NOx bei ca 100mg (Euro 4)"},
+            { year: 2010, smokeAlpha: 0.075 , smokeParticleNum:10, text:"NOx bei ca 75mg (Euro 5)"},
+            { year: 2015, smokeAlpha: 0.02 , smokeParticleNum:10, text:"NOx bei ca 20mg (Euro 6ab)"},
+            { year: 2020, smokeAlpha: 0.02 , smokeParticleNum:10, text:"NOx bei ca 20mg (Euro 6d)"}
         ];
 
         const entry = data.filter( (e) => e.year === parseInt($(this).val() )) 
         console.log("timeline.entry", entry)
+        let entryTxt =  ""
         if (entry.length > 0){
             _smokeAlpha = entry[0].smokeAlpha
             _smokeParticleNum = entry[0].smokeParticleNum
+            entryTxt =  entry[0].text
         }
 
-        $("#timelinevalue").text( $(this).val() );
+        $("#timelinevalue").text( $(this).val() + " - " + entryTxt);
     });
     
       
